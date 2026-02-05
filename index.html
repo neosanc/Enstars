@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enstars Translation Archive</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="index-container">
+    
+    <!-- Header -->
+    <div class="index-header">
+      <h1>✧ Enstars Translation Archive ✧</h1>
+      <p>A collection of Ensemble Stars story translations</p>
+    </div>
+
+    <!-- Filter Controls -->
+    <div class="filter-section">
+      <div class="filter-group">
+        <label>View by Type:</label>
+        <div class="filter-buttons" id="type-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="main-story">Main Story</button>
+          <button class="filter-btn" data-filter="event">Event</button>
+          <button class="filter-btn" data-filter="scout">Scout</button>
+          <button class="filter-btn" data-filter="other">Other</button>
+        </div>
+      </div>
+      
+      <div class="filter-group">
+        <label>View by Unit:</label>
+        <div class="filter-buttons unit-filters" id="unit-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="trickstar">Trickstar</button>
+          <button class="filter-btn" data-filter="fine">fine</button>
+          <button class="filter-btn" data-filter="ryuseitai">Ryuseitai</button>
+          <button class="filter-btn" data-filter="alkaloid">ALKALOID</button>
+          <button class="filter-btn" data-filter="eden">Eden</button>
+          <button class="filter-btn" data-filter="valkyrie">Valkyrie</button>
+          <button class="filter-btn" data-filter="undead">UNDEAD</button>
+          <button class="filter-btn" data-filter="rabits">Ra*bits</button>
+          <button class="filter-btn" data-filter="akatsuki">Akatsuki</button>
+          <button class="filter-btn" data-filter="knights">Knights</button>
+          <button class="filter-btn" data-filter="switch">Switch</button>
+          <button class="filter-btn" data-filter="mam">MaM</button>
+          <button class="filter-btn" data-filter="doublesface">Double Face</button>
+          <button class="filter-btn" data-filter="crazeb">Crazy:B</button>
+          <button class="filter-btn" data-filter="2wink">2wink</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story List -->
+    <div class="story-list" id="story-list">
+      
+      <!-- ============================================
+           HOW TO ADD A STORY CARD:
+           
+           1. Copy a story-card div
+           2. Set data-type to: main-story, event, scout, or other
+           3. Set data-units to the unit(s) featured (comma-separated if multiple)
+           4. Add story image in the .story-image div
+           5. Add character mini-sprites in the .featuring div
+           6. Update title, description, and link
+           ============================================ -->
+
+      <!-- EXAMPLE: Event story featuring Ryuseitai -->
+      <div class="story-card" data-type="event" data-units="ryuseitai">
+        <a href="stories/example-story.html">
+          <div class="story-image">
+            <img src="story-images/example-event.png" alt="Story banner">
+          </div>
+          <div class="story-info">
+            <span class="story-type event">Event</span>
+            <h3>Example Story Title</h3>
+            <p class="description">A brief description of what happens in this story...</p>
+            <div class="featuring">
+              <span class="featuring-label">Featuring:</span>
+              <img class="mini-sprite" src="sprites/midori.png" alt="Midori" title="Midori">
+              <img class="mini-sprite" src="sprites/chiaki.png" alt="Chiaki" title="Chiaki">
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- EXAMPLE: Main Story chapter -->
+      <div class="story-card" data-type="main-story" data-units="trickstar">
+        <a href="stories/main-story-ch1.html">
+          <div class="story-image">
+            <img src="story-images/main-story.png" alt="Story banner">
+          </div>
+          <div class="story-info">
+            <span class="story-type main-story">Main Story</span>
+            <h3>Main Story Chapter 1</h3>
+            <p class="description">The beginning of the story...</p>
+            <div class="featuring">
+              <span class="featuring-label">Featuring:</span>
+              <img class="mini-sprite" src="sprites/subaru.png" alt="Subaru" title="Subaru">
+              <img class="mini-sprite" src="sprites/hokuto.png" alt="Hokuto" title="Hokuto">
+              <img class="mini-sprite" src="sprites/makoto.png" alt="Makoto" title="Makoto">
+              <img class="mini-sprite" src="sprites/mao.png" alt="Mao" title="Mao">
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- EXAMPLE: Story featuring multiple units -->
+      <div class="story-card" data-type="event" data-units="ryuseitai,trickstar">
+        <a href="stories/crossover-event.html">
+          <div class="story-image">
+            <img src="story-images/crossover.png" alt="Story banner">
+          </div>
+          <div class="story-info">
+            <span class="story-type event">Event</span>
+            <h3>Crossover Event Example</h3>
+            <p class="description">When Ryuseitai meets Trickstar...</p>
+            <div class="featuring">
+              <span class="featuring-label">Featuring:</span>
+              <img class="mini-sprite" src="sprites/chiaki.png" alt="Chiaki" title="Chiaki">
+              <img class="mini-sprite" src="sprites/subaru.png" alt="Subaru" title="Subaru">
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- No results message -->
+    <div class="no-results" id="no-results" style="display: none;">
+      <p>No stories match the selected filters.</p>
+    </div>
+
+  </div>
+
+  <!-- Filter Script -->
+  <script>
+    // Current filter state
+    let currentTypeFilter = 'all';
+    let currentUnitFilter = 'all';
+
+    // Get all filter buttons and story cards
+    const typeButtons = document.querySelectorAll('#type-filters .filter-btn');
+    const unitButtons = document.querySelectorAll('#unit-filters .filter-btn');
+    const storyCards = document.querySelectorAll('.story-card');
+    const noResults = document.getElementById('no-results');
+
+    // Filter function
+    function filterStories() {
+      let visibleCount = 0;
+
+      storyCards.forEach(card => {
+        const cardType = card.dataset.type;
+        const cardUnits = card.dataset.units.split(',');
+
+        const typeMatch = currentTypeFilter === 'all' || cardType === currentTypeFilter;
+        const unitMatch = currentUnitFilter === 'all' || cardUnits.includes(currentUnitFilter);
+
+        if (typeMatch && unitMatch) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Show/hide no results message
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    // Type filter buttons
+    typeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        typeButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentTypeFilter = btn.dataset.filter;
+        filterStories();
+      });
+    });
+
+    // Unit filter buttons
+    unitButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        unitButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentUnitFilter = btn.dataset.filter;
+        filterStories();
+      });
+    });
+  </script>
+</body>
+</html>
