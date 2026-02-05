@@ -1,0 +1,247 @@
+/* ============================================
+   ENSTARS TRANSLATION ARCHIVE - STYLESHEET
+   ============================================
+   You generally don't need to edit this file!
+   Just use it as-is for all your story pages.
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container for the whole story */
+.story-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Story header with title and info */
+.story-header {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.story-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.story-header .story-info {
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+/* Individual dialogue block */
+.dialogue {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 8px;
+}
+
+/* Character sprite/icon */
+.dialogue .sprite {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* When there's no sprite (continuation of dialogue) */
+.dialogue.no-sprite {
+  padding-left: 95px;
+}
+
+/* Dialogue content area */
+.dialogue-content {
+  flex: 1;
+}
+
+/* Character name */
+.dialogue .name {
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* Dialogue text bubble */
+.dialogue .text {
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ============================================
+   CHARACTER COLORS
+   Add more characters by copying this pattern!
+   ============================================ */
+
+/* Midori Takamine - Soft green */
+.dialogue.midori .name { color: #2d5a3d; }
+.dialogue.midori .text { background-color: #d4edda; }
+
+/* Player/Anzu - Soft pink */
+.dialogue.player .name { color: #6b4c5a; }
+.dialogue.player .text { background-color: #f8e5ed; }
+
+/* Chiaki Morisawa - Orange/Red */
+.dialogue.chiaki .name { color: #c44a2d; }
+.dialogue.chiaki .text { background-color: #ffe4d4; }
+
+/* Kanata Shinkai - Blue */
+.dialogue.kanata .name { color: #2d5a7c; }
+.dialogue.kanata .text { background-color: #d4e8f4; }
+
+/* Tetora Nagumo - Red */
+.dialogue.tetora .name { color: #8b2d2d; }
+.dialogue.tetora .text { background-color: #f4d4d4; }
+
+/* Shinobu Sengoku - Purple */
+.dialogue.shinobu .name { color: #5a2d6b; }
+.dialogue.shinobu .text { background-color: #e8d4f4; }
+
+/* Subaru Akehoshi - Orange */
+.dialogue.subaru .name { color: #c46a2d; }
+.dialogue.subaru .text { background-color: #fff0d4; }
+
+/* Hokuto Hidaka - Blue/Dark */
+.dialogue.hokuto .name { color: #2d3a5a; }
+.dialogue.hokuto .text { background-color: #d4dae8; }
+
+/* Makoto Yuuki - Yellow/Green */
+.dialogue.makoto .name { color: #5a6b2d; }
+.dialogue.makoto .text { background-color: #eef4d4; }
+
+/* Mao Isara - Gray/Blue */
+.dialogue.mao .name { color: #4a5568; }
+.dialogue.mao .text { background-color: #e2e8f0; }
+
+/* Default/Narrator - Gray */
+.dialogue.narrator .name { color: #666; }
+.dialogue.narrator .text { 
+  background-color: #e9e9e9;
+  font-style: italic;
+}
+
+/* ============================================
+   PLAYER CHOICE BOX
+   ============================================ */
+
+.player-choice {
+  background-color: #f8e5ed;
+  padding: 16px 24px;
+  border-radius: 12px;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 1rem;
+  position: relative;
+}
+
+.player-choice::after {
+  content: "▲";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 0.8rem;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.nav-links a {
+  color: #4a5568;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: #e2e8f0;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.nav-links a:hover {
+  background: #cbd5e0;
+}
+
+/* ============================================
+   INDEX PAGE STYLES
+   ============================================ */
+
+.index-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.index-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.index-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.story-list {
+  display: grid;
+  gap: 15px;
+}
+
+.story-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.story-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.story-card a {
+  text-decoration: none;
+  color: #333;
+}
+
+.story-card h3 {
+  color: #4a5568;
+  margin-bottom: 5px;
+}
+
+.story-card .meta {
+  font-size: 0.9rem;
+  color: #718096;
+}

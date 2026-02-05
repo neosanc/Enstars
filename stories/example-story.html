@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Example Story - Enstars Archive</title>
+  <!-- Note: stories are in a subfolder, so we go up one level with ../ -->
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="story-container">
+    
+    <!-- Story Header -->
+    <div class="story-header">
+      <h1>Example Story Title</h1>
+      <p class="story-info">Main Story · Chapter 1</p>
+    </div>
+
+    <!-- ============================================
+         HOW TO ADD DIALOGUE:
+         
+         1. Copy a dialogue block
+         2. Change the character class (midori, player, chiaki, etc.)
+         3. Update the sprite image if showing a new expression
+         4. Change the name and text
+         
+         For continuation (same character, no sprite shown):
+         - Add class "no-sprite" and remove the <img> tag
+         ============================================ -->
+
+    <!-- Dialogue with sprite -->
+    <div class="dialogue midori">
+      <img class="sprite" src="../sprites/midori.png" alt="Midori">
+      <div class="dialogue-content">
+        <p class="name">MIDORI</p>
+        <p class="text">I've gotten used to doing solo work, but there are times when I wish I had everyone from Ryuseitai around.</p>
+      </div>
+    </div>
+
+    <!-- Continuation - same character, no sprite needed -->
+    <div class="dialogue midori no-sprite">
+      <div class="dialogue-content">
+        <p class="text">Especially with work where I have to meet new faces, like the job that's coming up...</p>
+      </div>
+    </div>
+
+    <!-- Another continuation -->
+    <div class="dialogue midori no-sprite">
+      <div class="dialogue-content">
+        <p class="text">Anzu-san, what do you make sure to do whenever you're working with someone for the first time?</p>
+      </div>
+    </div>
+
+    <!-- Player choice box -->
+    <div class="player-choice">
+      I make sure to read the room.
+    </div>
+
+    <!-- Midori responds - showing sprite again because expression might change -->
+    <div class="dialogue midori">
+      <img class="sprite" src="../sprites/midori.png" alt="Midori">
+      <div class="dialogue-content">
+        <p class="name">MIDORI</p>
+        <p class="text">Woah, that's insanely hard to do...!</p>
+      </div>
+    </div>
+
+    <!-- Continuation -->
+    <div class="dialogue midori no-sprite">
+      <div class="dialogue-content">
+        <p class="text">Can I really manage that...? I feel like my very existence would disappear if I ever tried to really read the room...</p>
+      </div>
+    </div>
+
+    <!-- Navigation links -->
+    <div class="nav-links">
+      <a href="../index.html">← Back to Index</a>
+      <a href="#">Next Chapter →</a>
+    </div>
+
+  </div>
+</body>
+</html>
